@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  teacher: one
+  class_room: one
+  start_date: 2017-03-28
+  end_date: 2017-03-28
+
+two:
+  teacher: two
+  class_room: two
+  start_date: 2017-03-28
+  end_date: 2017-03-28

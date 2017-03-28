@@ -1,0 +1,19 @@
+<%= simple_form_for(@teacher_class) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+
+    <%= f.association :teacher %>
+
+    <%= f.association :class_room %>
+
+    <%= f.input :start_date %>
+
+    <%= f.input :end_date %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
