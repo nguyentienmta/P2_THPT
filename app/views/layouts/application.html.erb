@@ -17,8 +17,9 @@
         </div>
         <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><%= link_to "|" %></li>
             <% if user_signed_in? %>
+                <li><%= link_to "Lịch", teacher_classes_path %></li>
+                <li><%= link_to "|" %></li>
                 <li><%= link_to "#{current_user.email}","#" %></li>
                 <li><%= link_to "Logout", destroy_user_session_path, :method => 'delete' %></li>
                 </ul>
@@ -29,8 +30,8 @@
             </div>
       </div>
     </nav>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice %><p class="alert alert-success"><%= notice %></p> <% end %>
+    <% if alert %> <p class="alert alert-danger"><%= alert %></p> <% end %>
     <%= yield %>
   </div>
   </body>

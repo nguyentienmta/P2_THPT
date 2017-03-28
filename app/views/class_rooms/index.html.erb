@@ -2,7 +2,7 @@
 
 <h1>Class Rooms</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -21,7 +21,7 @@
         <td><%= class_room.code %></td>
         <td><%= class_room.maximum %></td>
         <td><%= class_room.description %></td>
-        <td><%= class_room.school_year %></td>
+        <td><%= class_room.school_year.name %></td>
         <td><%= link_to 'Show', class_room %></td>
         <td><%= link_to 'Edit', edit_class_room_path(class_room) %></td>
         <td><%= link_to 'Destroy', class_room, method: :delete, data: { confirm: 'Are you sure?' } %></td>

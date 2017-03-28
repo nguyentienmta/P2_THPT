@@ -2,7 +2,7 @@
 
 <h1>Teachers</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -27,9 +27,9 @@
         <td><%= teacher.phone %></td>
         <td><%= teacher.address %></td>
         <td><%= teacher.start_date %></td>
-        <td><%= teacher.isHeadMaster %></td>
-        <td><%= teacher.subject %></td>
-        <td><%= teacher.certificate %></td>
+        <td><%= check_box_tag 'isHeadMaset', 'yes', teacher.isHeadMaster,disabled: true %></td>
+        <td><%= teacher.subject.name %></td>
+        <td><%= teacher.certificate.name %></td>
         <td><%= link_to 'Show', teacher %></td>
         <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
         <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
