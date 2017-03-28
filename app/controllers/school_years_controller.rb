@@ -1,6 +1,6 @@
 class SchoolYearsController < ApplicationController
   before_action :set_school_year, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:edit,:update,:destroy]
   # GET /school_years
   # GET /school_years.json
   def index

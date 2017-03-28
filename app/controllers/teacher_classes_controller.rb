@@ -1,6 +1,6 @@
 class TeacherClassesController < ApplicationController
   before_action :set_teacher_class, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:edit,:update,:destroy]
   # GET /teacher_classes
   # GET /teacher_classes.json
   def index

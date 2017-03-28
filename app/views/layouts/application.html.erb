@@ -18,7 +18,13 @@
         <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <% if user_signed_in? %>
+                <li><%= link_to "Môn học", subjects_path %></li>
+                <li><%= link_to "Học sinh", students_path %></li>
+                <li><%= link_to "Giáo viên", teachers_path %></li>
+                <li><%= link_to "Lớp", class_rooms_path %></li>
                 <li><%= link_to "Lịch", teacher_classes_path %></li>
+                <li><%= link_to "Khóa", school_years_path %></li>
+                <li><%= link_to "Bằng cấp", certificates_path %></li>
                 <li><%= link_to "|" %></li>
                 <li><%= link_to "#{current_user.email}","#" %></li>
                 <li><%= link_to "Logout", destroy_user_session_path, :method => 'delete' %></li>
