@@ -69,6 +69,6 @@ class TeacherClassesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_class_params
-      params.require(:teacher_class).permit(:teacher_id, :class_room_id, :start_date, :end_date)
+      params.require(:teacher_class).permit(:subject_id,:teacher_id, :class_room_id, :start_date, :end_date)
     end
 end

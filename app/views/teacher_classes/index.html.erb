@@ -16,8 +16,9 @@
   <tbody>
     <% @teacher_classes.each do |teacher_class| %>
       <tr>
-        <td><%= teacher_class.teacher %></td>
-        <td><%= teacher_class.class_room %></td>
+        <td><%= teacher_class.subject.name %></td>
+        <td><%= teacher_class.teacher.name %></td>
+        <td><%= teacher_class.class_room.name %></td>
         <td><%= teacher_class.start_date %></td>
         <td><%= teacher_class.end_date %></td>
         <td><%= link_to 'Show', teacher_class %></td>
