@@ -5,6 +5,20 @@ class TeacherClassesController < ApplicationController
   # GET /teacher_classes.json
   def index
     @teacher_classes = TeacherClass.all
+    if !params[:search].nil?
+      if params[:search][:subject] != ""
+        @teacher_classes = TeacherClass.joins(:subject).where('subjects.name LIKE ?',"%#{params[:search][:subject]}%")
+      end
+
+      if params[:search][:teacher] != ""
+        @teacher_classes = @teacher_classes.joins(:teacher).where('teachers.name LIKE ?',"%#{params[:search][:teacher]}%")
+      end
+
+      if params[:search][:class] != ""
+        @teacher_classes = @teacher_classes.joins(:class_room).where('class_rooms.name LIKE ?',"%#{params[:search][:class]}%")
+      end
+    end
+    puts @teacher_class
   end
 
   # GET /teacher_classes/1

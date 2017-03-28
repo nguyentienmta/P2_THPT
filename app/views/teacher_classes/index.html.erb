@@ -7,13 +7,13 @@
     <div class="row pull-right">
     <%= simple_form_for :search, url: teacher_classes_path, :html => { :class => 'form-search' },:method => :get do |f| %>
           <div class="pull-left">
-            <%= f.text_field :subject, placeholder: 'Seach by subject',autocomplete:"off", class: 'form-control',id:'search',:value => (params[:search].nil?)?'':params[:search][:name] %>
+            <%= f.text_field :subject, placeholder: 'Seach by subject',autocomplete:"off", class: 'form-control',id:'search',:value => (params[:search].nil?)?'':params[:search][:subject] %>
           </div>
           <div class="pull-left">
-            <%= f.text_field :teacher, placeholder: 'Seach by teacher',autocomplete:"off", class: 'form-control',id:'search',:value => (params[:search].nil?)?'':params[:search][:name] %>
+            <%= f.text_field :teacher, placeholder: 'Seach by teacher',autocomplete:"off", class: 'form-control',id:'search',:value => (params[:search].nil?)?'':params[:search][:teacher] %>
           </div>
           <div class="pull-left">
-            <%= f.text_field :class, placeholder: 'Seach by class',autocomplete:"off", class: 'form-control',id:'search',:value => (params[:search].nil?)?'':params[:search][:name] %>
+            <%= f.text_field :class, placeholder: 'Seach by class',autocomplete:"off", class: 'form-control',id:'search',:value => (params[:search].nil?)?'':params[:search][:class] %>
           </div>
           <div class="pull-right">
             <%= f.button :submit, 'Search', class: 'btn btn-default' %>
