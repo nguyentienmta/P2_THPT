@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @school_year.name %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @school_year.code %>
+</p>
+
+<p>
+  <strong>Start year:</strong>
+  <%= @school_year.start_year %>
+</p>
+
+<p>
+  <strong>End year:</strong>
+  <%= @school_year.end_year %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @school_year.description %>
+</p>
+
+<%= link_to 'Edit', edit_school_year_path(@school_year) %> |
+<%= link_to 'Back', school_years_path %>
