@@ -1,10 +1,10 @@
 class TeachersController < ApplicationController
   before_action :set_teacher, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:edit,:update,:destroy]
   # GET /teachers
   # GET /teachers.json
   def index
-    @teachers = Teacher.all
+    @teachers = Teacher.search(params[:search]).paginate(:page => params[:page])
   end
 
   # GET /teachers/1
@@ -69,6 +69,6 @@ class TeachersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
-      params.require(:teacher).permit(:name, :code, :birthday, :phone, :address, :start_date, :isHeadMaster, :subject_id, :certificate_id)
+      params.require(:teacher).permit(:name, :code, :birthday, :phone, :address, :start_date, :isHeadMaster, :certificate_id)
     end
 end

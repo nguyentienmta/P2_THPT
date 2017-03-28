@@ -1,6 +1,6 @@
 class TeacherClassesController < ApplicationController
   before_action :set_teacher_class, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:edit,:update,:destroy]
   # GET /teacher_classes
   # GET /teacher_classes.json
   def index
@@ -69,6 +69,6 @@ class TeacherClassesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_class_params
-      params.require(:teacher_class).permit(:teacher_id, :class_room_id, :start_date, :end_date)
+      params.require(:teacher_class).permit(:subject_id,:teacher_id, :class_room_id, :start_date, :end_date)
     end
 end

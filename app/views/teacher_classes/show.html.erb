@@ -1,11 +1,16 @@
 <p>
+  <strong>Subject:</strong>
+  <%= @teacher_class.subject.name %>
+</p>
+
+<p>
   <strong>Teacher:</strong>
-  <%= @teacher_class.teacher %>
+  <%= @teacher_class.teacher.name %>
 </p>
 
 <p>
   <strong>Class room:</strong>
-  <%= @teacher_class.class_room %>
+  <%= @teacher_class.class_room.name %>
 </p>
 
 <p>

@@ -1,6 +1,6 @@
 class ClassRoomsController < ApplicationController
   before_action :set_class_room, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:edit,:update,:destroy]
   # GET /class_rooms
   # GET /class_rooms.json
   def index

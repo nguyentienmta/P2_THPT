@@ -1,10 +1,10 @@
 class SchoolYearsController < ApplicationController
   before_action :set_school_year, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:edit,:update,:destroy]
   # GET /school_years
   # GET /school_years.json
   def index
-    @school_years = SchoolYear.all
+    @school_years = SchoolYear.search(params[:search]).order(:start_year).paginate(:page => params[:page])
   end
 
   # GET /school_years/1

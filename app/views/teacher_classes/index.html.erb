@@ -1,10 +1,31 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Teacher Classes</h1>
-
-<table class="table">
+<h1>Schedule</h1>
+<div class="row">
+  <div class="col-lg-4 pull-left">
+    <%= link_to 'New schedule', new_teacher_class_path,class: "btn btn-primary pull-left" %>
+  </div>
+  <div class="col-lg-8 pull-right">
+    <div class="row pull-right">
+    <%= simple_form_for :search, url: teacher_classes_path, :html => { :class => 'form-search' },:method => :get do |f| %>
+          <div class="pull-left">
+            <%= f.text_field :subject, placeholder: 'Seach by subject',autocomplete:"off", class: 'form-control',id:'search',:value => (params[:search].nil?)?'':params[:search][:name] %>
+          </div>
+          <div class="pull-left">
+            <%= f.text_field :teacher, placeholder: 'Seach by teacher',autocomplete:"off", class: 'form-control',id:'search',:value => (params[:search].nil?)?'':params[:search][:name] %>
+          </div>
+          <div class="pull-left">
+            <%= f.text_field :class, placeholder: 'Seach by class',autocomplete:"off", class: 'form-control',id:'search',:value => (params[:search].nil?)?'':params[:search][:name] %>
+          </div>
+          <div class="pull-right">
+            <%= f.button :submit, 'Search', class: 'btn btn-default' %>
+          </div>
+    <% end %>
+    </div>
+    </div>
+</div>
+<table class="table responsive">
   <thead>
-    <tr>
+  <tr>
+      <th>Subject</th>
       <th>Teacher</th>
       <th>Class room</th>
       <th>Start date</th>
@@ -14,20 +35,19 @@
   </thead>
 
   <tbody>
-    <% @teacher_classes.each do |teacher_class| %>
+  <% @teacher_classes.each do |teacher_class| %>
       <tr>
-        <td><%= teacher_class.teacher %></td>
-        <td><%= teacher_class.class_room %></td>
+        <td><%= teacher_class.subject.name %></td>
+        <td><%= teacher_class.teacher.name %></td>
+        <td><%= teacher_class.class_room.name %></td>
         <td><%= teacher_class.start_date %></td>
         <td><%= teacher_class.end_date %></td>
         <td><%= link_to 'Show', teacher_class %></td>
         <td><%= link_to 'Edit', edit_teacher_class_path(teacher_class) %></td>
         <td><%= link_to 'Destroy', teacher_class, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Teacher Class', new_teacher_class_path %>

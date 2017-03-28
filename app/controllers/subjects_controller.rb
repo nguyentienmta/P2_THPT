@@ -1,10 +1,10 @@
 class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:edit,:update,:destroy]
   # GET /subjects
   # GET /subjects.json
   def index
-    @subjects = Subject.all
+    @subjects = Subject.search(params[:search]).paginate(:page => params[:page])
   end
 
   # GET /subjects/1

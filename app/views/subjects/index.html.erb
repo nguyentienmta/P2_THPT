@@ -1,10 +1,22 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Subjects</h1>
-
-<table class="table">
+<div class="row">
+  <div class="col-lg-4 pull-left">
+    <%= link_to 'New Subject', new_subject_path,class: "btn btn-primary pull-left" %>
+  </div>
+  <div class="col-lg-4 pull-right">
+    <%= simple_form_for :search, url: subjects_path,:html =>{id: 'movie_search'}, :method => :get do |f| %>
+        <div class="input-group">
+          <%= f.text_field :name, placeholder: 'Seach by name',autocomplete:"off", class: 'form-control',id:'search',:value => (params[:search].nil?)?'':params[:search][:name] %>
+          <span class="input-group-btn">
+              <%= f.button :submit, 'Search', class: 'btn btn-default' %>
+            </span>
+        </div>
+        </div>
+    <% end %>
+</div>
+<table class="table responsive">
   <thead>
-    <tr>
+  <tr>
       <th>Name</th>
       <th>Code</th>
       <th>Lesson</th>
@@ -14,20 +26,30 @@
   </thead>
 
   <tbody>
-    <% @subjects.each do |subject| %>
+  <% if @subjects.length > 0 %>
+  <% @subjects.each do |subject| %>
       <tr>
-        <td><%= subject.name %></td>
-        <td><%= subject.code %></td>
-        <td><%= subject.lesson %></td>
-        <td><%= subject.description %></td>
+        <td width="120px"><%= subject.name %></td>
+        <td width="100px"><%= subject.code %></td>
+        <td width="50px"><%= subject.lesson %></td>
+        <td ><%= subject.description %></td>
         <td><%= link_to 'Show', subject %></td>
         <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
         <td><%= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+  <% end %>
+  <% else %>
+      <tr>
+        <td>no results to display</td>
+      </tr>
+  <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Subject', new_subject_path %>
+<div class="row">
+  <div class="col-md-6">
+  </div>
+  <div class="col-md-6 margin-top-8 text-right">
+    <%= will_paginate @admin_room_devices %><br>
+  </div>
+</div>
+</div>
