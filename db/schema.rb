@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170328062411) do
+ActiveRecord::Schema.define(version: 20170328063858) do
 
   create_table "certificates", force: :cascade do |t|
     t.string   "name"
@@ -19,11 +19,32 @@ ActiveRecord::Schema.define(version: 20170328062411) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "class_rooms", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.integer  "maximum"
+    t.string   "description"
+    t.integer  "school_year_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["school_year_id"], name: "index_class_rooms_on_school_year_id"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string   "code"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "school_years", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.integer  "start_year"
+    t.integer  "end_year"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "subjects", force: :cascade do |t|

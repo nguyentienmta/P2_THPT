@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :class_rooms
+  resources :school_years
   resources :teachers
   resources :certificates
   resources :subjects

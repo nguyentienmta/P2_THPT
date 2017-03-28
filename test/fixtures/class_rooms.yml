@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  code: MyString
+  maximum: 1
+  description: MyString
+  school_year: one
+
+two:
+  name: MyString
+  code: MyString
+  maximum: 1
+  description: MyString
+  school_year: two
