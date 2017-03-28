@@ -1,10 +1,23 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Teachers</h1>
 
+<div class="row">
+  <div class="col-lg-4 pull-left">
+    <%= link_to 'New teacher', new_teacher_class_path,class: "btn btn-primary pull-left" %>
+  </div>
+  <div class="col-lg-4 pull-right">
+    <%= simple_form_for :search, url: teachers_path,:html =>{id: 'movie_search'}, :method => :get do |f| %>
+        <div class="input-group">
+          <%= f.text_field :name, placeholder: 'Seach by name',autocomplete:"off", class: 'form-control',id:'search',:value => (params[:search].nil?)?'':params[:search][:name] %>
+          <span class="input-group-btn">
+              <%= f.button :submit, 'Search', class: 'btn btn-default' %>
+            </span>
+        </div>
+        </div>
+    <% end %>
+    </div>
 <table class="table">
   <thead>
-    <tr>
+  <tr>
       <th>Name</th>
       <th>Code</th>
       <th>Birthday</th>
@@ -19,7 +32,7 @@
   </thead>
 
   <tbody>
-    <% @teachers.each do |teacher| %>
+  <% @teachers.each do |teacher| %>
       <tr>
         <td><%= teacher.name %></td>
         <td><%= teacher.code %></td>
@@ -33,10 +46,9 @@
         <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
         <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Teacher', new_teacher_path %>

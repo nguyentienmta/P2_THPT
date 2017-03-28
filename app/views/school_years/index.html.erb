@@ -1,7 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>School Years</h1>
-
+<h1>Khóa</h1>
+<div class="row">
+  <div class="col-lg-4 pull-left">
+    <%= link_to 'New Subject', new_school_year_path,class: "btn btn-primary pull-left" %>
+  </div>
+  <div class="col-lg-4 pull-right">
+    <%= simple_form_for :search, url: school_years_path,:html =>{id: 'movie_search'}, :method => :get do |f| %>
+        <div class="input-group">
+          <%= f.text_field :name, placeholder: 'Seach by name',autocomplete:"off", class: 'form-control',id:'search',:value => (params[:search].nil?)?'':params[:search][:name] %>
+          <span class="input-group-btn">
+              <%= f.button :submit, 'Search', class: 'btn btn-default' %>
+            </span>
+        </div>
+        </div>
+    <% end %>
+    </div>
 <table class="table">
   <thead>
     <tr>
@@ -31,5 +45,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New School Year', new_school_year_path %>

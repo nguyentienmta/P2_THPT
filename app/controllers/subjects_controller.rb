@@ -4,7 +4,7 @@ class SubjectsController < ApplicationController
   # GET /subjects
   # GET /subjects.json
   def index
-    @subjects = Subject.all
+    @subjects = Subject.search(params[:search]).paginate(:page => params[:page])
   end
 
   # GET /subjects/1

@@ -1,0 +1,16 @@
+<div class="col-lg-4">
+    <%= simple_form_for :search, url: subjects_path,:html =>{id: 'movie_search'}, :method => :get do |f| %>
+    <div class="input-group">
+        <%= f.text_field :name, placeholder: 'Seach',autocomplete:"off", class: 'form-control',id:'search',:value => (params[:search].nil?)?'':params[:search][:name] %>
+        <span class="input-group-btn">
+              <%= f.button :submit, 'Search', class: 'btn btn-default' %>
+            </span>
+    </div>
+</div>
+<% end %>
+</div>
+<div class="col-lg-8">
+    <div class="pull-right">
+        <%= link_to 'New Subject', new_subject_path,class: "btn btn-primary pull-right" %>
+    </div>
+</div>

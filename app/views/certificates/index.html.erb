@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Certificates</h1>
+<%= link_to 'New Certificate', new_certificate_path,class: "btn btn-primary pull-right" %>
 
 <table class="table">
   <thead>
-    <tr>
+  <tr>
       <th>Name</th>
       <th>Code</th>
       <th colspan="3"></th>
@@ -12,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @certificates.each do |certificate| %>
+  <% @certificates.each do |certificate| %>
       <tr>
         <td><%= certificate.name %></td>
         <td><%= certificate.code %></td>
@@ -20,10 +21,9 @@
         <td><%= link_to 'Edit', edit_certificate_path(certificate) %></td>
         <td><%= link_to 'Destroy', certificate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Certificate', new_certificate_path %>

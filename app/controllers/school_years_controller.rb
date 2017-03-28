@@ -4,7 +4,7 @@ class SchoolYearsController < ApplicationController
   # GET /school_years
   # GET /school_years.json
   def index
-    @school_years = SchoolYear.all
+    @school_years = SchoolYear.search(params[:search]).order(:start_year).paginate(:page => params[:page])
   end
 
   # GET /school_years/1
