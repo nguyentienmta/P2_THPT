@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  code: MyString
+  birthday: 2017-03-28
+  phone: MyString
+  address: MyString
+  start_date: MyString
+  isHeadMaster: 
+  subject: one
+  certificate: one
+
+two:
+  name: MyString
+  code: MyString
+  birthday: 2017-03-28
+  phone: MyString
+  address: MyString
+  start_date: MyString
+  isHeadMaster: 
+  subject: two
+  certificate: two

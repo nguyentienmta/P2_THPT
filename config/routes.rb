@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :teachers
+  resources :certificates
+  resources :subjects
   resources :roles
   devise_for :users
   root 'home#index'

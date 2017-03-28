@@ -1,0 +1,29 @@
+<%= simple_form_for(@teacher) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+
+    <%= f.input :name %>
+
+    <%= f.input :code %>
+
+    <%= f.input :birthday %>
+
+    <%= f.input :phone %>
+
+    <%= f.input :address %>
+
+    <%= f.input :start_date %>
+
+    <%= f.input :isHeadMaster %>
+
+    <%= f.association :subject %>
+
+    <%= f.association :certificate %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
