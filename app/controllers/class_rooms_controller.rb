@@ -4,7 +4,17 @@ class ClassRoomsController < ApplicationController
   # GET /class_rooms
   # GET /class_rooms.json
   def index
-    @class_rooms = ClassRoom.search(params[:search])
+    @class_rooms = ClassRoom.all
+    if !params[:search].nil?
+      if params[:search][:name] != ""
+        @class_rooms = ClassRoom.where("name LIKE ?","%#{params[:search][:name]}%")
+      end
+
+      if params[:search][:year] != ""
+        @class_rooms = @teacher_classes.joins(:school_year).where('school_years.name LIKE ?',"%#{params[:search][:year]}%")
+      end
+
+    end
   end
 
   # GET /class_rooms/1

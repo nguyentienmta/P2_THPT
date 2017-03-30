@@ -5,6 +5,23 @@
   <div class="col-lg-4 pull-left">
     <%= link_to 'New class', new_class_room_path,class: "btn btn-primary pull-left" %>
   </div>
+  <div class="col-lg-8 pull-right">
+    <div class="row pull-right">
+      <%= simple_form_for :search, url: teacher_classes_path, :html => { :class => 'form-search' },:method => :get do |f| %>
+          <div class="pull-left">
+            <%= f.text_field :name, placeholder: 'Seach by name',autocomplete:"off", class: 'form-control',id:'search',:value => (params[:search].nil?)?'':params[:search][:name] %>
+          </div>
+          <div class="pull-left">
+            <%= f.text_field :year, placeholder: 'Seach by school year',autocomplete:"off", class: 'form-control',id:'search',:value => (params[:search].nil?)?'':params[:search][:year] %>
+          </div>
+          <div class="pull-right">
+            <%= f.button :submit, 'Search', class: 'btn btn-default' %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+
+
   <div class="col-lg-4 pull-right">
     <%= simple_form_for :search, url: class_rooms_path,:html =>{id: 'movie_search'}, :method => :get do |f| %>
         <div class="input-group">
