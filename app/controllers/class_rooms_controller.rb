@@ -4,7 +4,7 @@ class ClassRoomsController < ApplicationController
   # GET /class_rooms
   # GET /class_rooms.json
   def index
-    @class_rooms = ClassRoom.all
+    @class_rooms = ClassRoom.search(params[:search])
   end
 
   # GET /class_rooms/1
