@@ -9,11 +9,11 @@
 
     <%= f.input :birthday %>
 
-    <%= f.input :sex %>
+    <%= f.input :sex,:label => "Sex", :collection => Student::SEX %>
 
     <%= f.input :address %>
 
-    <%= f.association :class_room %>
+    <%= f.association :class_room,:label_method => lambda { |class_room| "#{class_room.name}-#{class_room.school_year.code}" } %>
 
   </div>
 
