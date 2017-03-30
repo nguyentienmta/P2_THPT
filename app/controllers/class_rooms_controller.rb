@@ -7,11 +7,11 @@ class ClassRoomsController < ApplicationController
     @class_rooms = ClassRoom.all
     if !params[:search].nil?
       if params[:search][:name] != ""
-        @class_rooms = ClassRoom.where("name LIKE ?","%#{params[:search][:name]}%")
+        @class_rooms = @class_rooms.where("class_rooms.name LIKE ?","%#{params[:search][:name]}%")
       end
 
       if params[:search][:year] != ""
-        @class_rooms = @teacher_classes.joins(:school_year).where('school_years.name LIKE ?',"%#{params[:search][:year]}%")
+        @class_rooms = @class_rooms.joins(:school_year).where('school_years.code LIKE ?',"%#{params[:search][:year]}%")
       end
 
     end
