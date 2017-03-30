@@ -18,7 +18,6 @@ class TeacherClassesController < ApplicationController
         @teacher_classes = @teacher_classes.joins(:class_room).where('class_rooms.name LIKE ?',"%#{params[:search][:class]}%")
       end
     end
-    puts @teacher_class
   end
 
   # GET /teacher_classes/1

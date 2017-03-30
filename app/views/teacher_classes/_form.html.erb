@@ -6,7 +6,7 @@
 
     <%= f.association :teacher %>
 
-    <%= f.association :class_room %>
+    <%= f.association :class_room, :label_method => lambda { |class_room| "#{class_room.name}-#{class_room.school_year.code}" } %>
 
     <%= f.input :start_date %>
 

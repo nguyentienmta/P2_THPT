@@ -39,7 +39,7 @@
       <tr>
         <td><%= teacher_class.subject.name %></td>
         <td><%= teacher_class.teacher.name %></td>
-        <td><%= teacher_class.class_room.name %></td>
+        <td><%= teacher_class.class_room.name %>-<%= teacher_class.class_room.school_year.code %></td>
         <td><%= teacher_class.start_date %></td>
         <td><%= teacher_class.end_date %></td>
         <td><%= link_to 'Show', teacher_class %></td>

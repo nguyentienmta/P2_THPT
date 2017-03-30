@@ -15,7 +15,7 @@
 
 <p>
   <strong>Sex:</strong>
-  <%= @student.sex %>
+  <% if @student.sex == 1 %> Nam <% elsif @student.sex == 0 %> Nữ <% end %>
 </p>
 
 <p>
@@ -25,7 +25,7 @@
 
 <p>
   <strong>Class room:</strong>
-  <%= @student.class_room %>
+  <%= @student.class_room.name %>-<%= @student.class_room.school_year.code %>
 </p>
 
 <%= link_to 'Edit', edit_student_path(@student) %> |

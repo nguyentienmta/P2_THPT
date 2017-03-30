@@ -35,7 +35,7 @@
         <td><%= student.name %></td>
         <td><%= student.code %></td>
         <td><%= student.birthday %></td>
-        <td><%= student.sex %></td>
+        <td><% if student.sex == 1 %> Nam <% elsif student.sex == 0 %> Nữ <% end %></td>
         <td><%= student.address %></td>
         <td><%= student.class_room.name %> - <%= student.class_room.school_year.name %></td>
         <td><%= link_to 'Show', student %></td>
